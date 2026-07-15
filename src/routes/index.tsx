@@ -40,8 +40,7 @@ const amenityImage = "/images/amenity1.jpg";
 const lobbyImage = "/images/lobby.jpg";
 const gardensImage = "/images/gardens.jpg";
 const towerImage = "/images/tower.jpg";
-const logoImage = "/images/dlf-logo.svg";
-
+const logoImage = "/images/logo.png";
 
 // import interior1Asset from "@/assets/interior1.jpg.asset.json";
 // import amenity1Asset from "@/assets/amenity1.jpg.asset.json";
@@ -102,13 +101,13 @@ function Nav() {
     >
       <div className="container-lux flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <div className="flex h-11 items-center justify-center rounded-md bg-white/95 px-3 py-1.5 shadow-sm">
-            <img src={logoImage} alt="DLF" className="h-6 w-auto" />
+          <div className="flex h-11 items-center justify-center">
+            <img src={logoImage} alt="DLF" className="h-10 w-auto" />
           </div>
-          <div className="leading-tight hidden sm:block">
+          {/* <div className="leading-tight hidden sm:block">
             <div className="font-display text-base tracking-wide">Hamilton Court 2</div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Gurugram</div>
-          </div>
+          </div> */}
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {HEADER_NAV.map((n) => (
@@ -171,7 +170,7 @@ function Hero() {
               <span className="gold-text italic">Reimagined.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground">
-              DLF Hamilton Court 2 — an ultra-luxury enclave of 4.5 BHK residences and sky-penthouses,
+              DLF Hamilton Court 2 -an ultra-luxury enclave of 4.5 BHK residences and sky-penthouses,
               set across 12.5 acres in the heart of Gurugram.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -218,7 +217,7 @@ function SectionTitle({ eyebrow, title, subtitle }: { eyebrow: string; title: st
 
 function Overview() {
   return (
-    <section id="overview" className="relative py-24 md:py-32">
+    <section id="overview" className="relative py-2 md:py-3">
       <div className="container-lux">
         <SectionTitle eyebrow="The Project" title="An enclave curated for the few." />
         <div className="mt-16 grid gap-10 md:grid-cols-2 md:items-center">
@@ -229,12 +228,12 @@ function Overview() {
             <p className="text-lg leading-relaxed text-muted-foreground">
               Set behind private gates in Gurugram's most sought-after corridor, DLF Hamilton Court 2 is a
               limited collection of expansive 4.5 BHK residences and sky-penthouses. Each home is engineered
-              for scale — approx. <span className="text-foreground">5,500 sq ft</span> of living, with penthouses
+              for scale -approx. <span className="text-foreground">5,500 sq ft</span> of living, with penthouses
               extending to <span className="text-foreground">8,500 sq ft</span>.
             </p>
             <p className="mt-5 leading-relaxed text-muted-foreground">
               Six to seven sculpted towers rise from twelve and a half acres of landscaped gardens, water bodies
-              and low-density living — an address that speaks softly, yet unmistakably.
+              and low-density living -an address that speaks softly, yet unmistakably.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
@@ -268,7 +267,7 @@ const HIGHLIGHTS = [
 
 function Highlights() {
   return (
-    <section id="highlights" className="relative py-24 md:py-32 bg-[oklch(0.12_0.015_260)]">
+    <section id="highlights" className="relative py-1 md:py-5 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
         <SectionTitle eyebrow="Key Highlights" title="Details that define the address." />
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -299,7 +298,7 @@ const AMENITIES = [
 
 function Amenities() {
   return (
-    <section id="amenities" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="amenities" className="relative py-5 md:py-1 overflow-hidden">
       <div className="absolute inset-0 -z-10 opacity-40">
         <img src={amenityImage} alt="" className="h-full w-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-background/85" />
@@ -323,12 +322,12 @@ function Amenities() {
 
 function MasterPlan() {
   return (
-    <section id="masterplan" className="relative py-24 md:py-32 bg-[oklch(0.12_0.015_260)]">
+    <section id="masterplan" className="relative py-1 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
         <SectionTitle eyebrow="Master Plan" title="Twelve and a half acres, thoughtfully composed." />
         <div className="mt-16 relative overflow-hidden rounded-3xl gold-border shadow-[var(--shadow-luxe)]">
           <div className="relative aspect-[16/9]">
-            <img src={gardensImage} alt="Master plan preview — DLF Hamilton Court 2 landscape" className="absolute inset-0 h-full w-full object-cover opacity-60" loading="lazy" />
+            <img src={gardensImage} alt="Master plan preview -DLF Hamilton Court 2 landscape" className="absolute inset-0 h-full w-full object-cover opacity-60" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
             <div className="absolute inset-0 grid place-items-center text-center px-6">
               <div>
@@ -355,7 +354,7 @@ const FLOORPLANS = [
 
 function FloorPlans() {
   return (
-    <section id="floorplans" className="relative py-24 md:py-32">
+    <section id="floorplans" className="relative py-1 md:py-1">
       <div className="container-lux">
         <SectionTitle eyebrow="Floor Plans" title="Three ways to live grandly." />
         <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -387,13 +386,13 @@ const LOCATION = [
   { time: "10 min", place: "Cyber Hub & DLF Cyber City" },
   { time: "15 min", place: "IGI Airport (via Dwarka Expressway)" },
   { time: "5 min", place: "Leading International Schools" },
-  { time: "10 min", place: "Premium Hospitals — Medanta, Fortis" },
+  { time: "10 min", place: "Premium Hospitals -Medanta, Fortis" },
   { time: "8 min", place: "Ambience & DLF Emporio Mall" },
 ];
 
 function Location() {
   return (
-    <section id="location" className="relative py-24 md:py-32 bg-[oklch(0.12_0.015_260)]">
+    <section id="location" className="relative py-2 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
         <SectionTitle eyebrow="Location Advantages" title="At the centre of everything that matters." />
         <div className="mt-16 mx-auto max-w-3xl">
@@ -424,7 +423,7 @@ const PRICING = [
 
 function Pricing() {
   return (
-    <section id="pricing" className="relative py-24 md:py-32">
+    <section id="pricing" className="relative py-2 md:py-2">
       <div className="container-lux">
         <SectionTitle eyebrow="Indicative Pricing" title="Positioned at ≈ ₹50,000 per sq ft." subtitle="Pricing is indicative and subject to change at the sole discretion of the developer." />
         <div className="mt-16 overflow-hidden rounded-3xl glass shadow-[var(--shadow-luxe)]">
@@ -461,7 +460,7 @@ const GALLERY = [
 
 function Gallery() {
   return (
-    <section id="gallery" className="relative py-24 md:py-32 bg-[oklch(0.12_0.015_260)]">
+    <section id="gallery" className="relative py-2 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
         <SectionTitle eyebrow="Gallery" title="A visual preview." />
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
@@ -491,7 +490,7 @@ const FAQS = [
 
 function FAQ() {
   return (
-    <section id="faq" className="relative py-24 md:py-32">
+    <section id="faq" className="relative py-2 md:py-2">
       <div className="container-lux max-w-3xl">
         <SectionTitle eyebrow="FAQ" title="Frequently asked questions." />
         <Accordion type="single" collapsible className="mt-12">
@@ -520,7 +519,7 @@ function LeadForm() {
     const email = String(data.get("email") ?? "");
     const phone = String(data.get("phone") ?? "");
     const msg = String(data.get("msg") ?? "");
-    const subject = encodeURIComponent(`EOI — DLF Hamilton Court 2 — ${name}`);
+    const subject = encodeURIComponent(`EOI -DLF Hamilton Court 2 -${name}`);
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${msg}`,
     );
@@ -528,11 +527,11 @@ function LeadForm() {
     setTimeout(() => {
       setSubmitting(false);
       form.reset();
-      toast.success("Thank you — our relationship manager will reach out shortly.");
+      toast.success("Thank you -our relationship manager will reach out shortly.");
     }, 900);
   };
   return (
-    <section id="enquire" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="enquire" className="relative py-2 md:py-2 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img src={lobbyImage} alt="" className="h-full w-full object-cover opacity-25" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
@@ -579,7 +578,7 @@ function LeadForm() {
               </div>
               <div>
                 <Label htmlFor="msg" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Message</Label>
-                <Textarea id="msg" rows={3} className="mt-2 bg-background/40 border-border" placeholder="Tell us your preference — apartment, corner unit or penthouse." />
+                <Textarea id="msg" rows={3} className="mt-2 bg-background/40 border-border" placeholder="Tell us your preference -apartment, corner unit or penthouse." />
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button type="submit" disabled={submitting} size="lg" className="flex-1 rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 shadow-[var(--shadow-gold)]">
@@ -631,13 +630,13 @@ function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <div className="flex h-11 items-center justify-center rounded-md bg-white/95 px-3 py-1.5">
+              <div className="flex h-11 items-center justify-center px-3 py-1.5">
                 <img src={logoImage} alt="DLF" className="h-6 w-auto" />
               </div>
-              <div>
+              {/* <div>
                 <div className="font-display text-lg">Hamilton Court 2</div>
                 <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Gurugram</div>
-              </div>
+              </div> */}
             </div>
             <p className="mt-5 text-sm text-muted-foreground max-w-sm">
               An ultra-luxury residential enclave. This microsite is presented by an authorised channel partner.
