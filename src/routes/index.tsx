@@ -653,7 +653,6 @@ function Footer() {
             </div>
           </div>
         </div>
-        </div>
         <div className="hairline my-10" />
         <p className="text-[11px] leading-relaxed text-muted-foreground max-w-4xl">
           <span className="text-foreground/80 font-medium">Disclaimer:</span> All content on this website is
