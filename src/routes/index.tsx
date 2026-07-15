@@ -34,13 +34,21 @@ import {
   X,
 } from "lucide-react";
 
-import heroAsset from "@/assets/hero.jpg.asset.json";
-import interior1Asset from "@/assets/interior1.jpg.asset.json";
-import amenity1Asset from "@/assets/amenity1.jpg.asset.json";
-import lobbyAsset from "@/assets/lobby.jpg.asset.json";
-import gardensAsset from "@/assets/gardens.jpg.asset.json";
-import towerAsset from "@/assets/tower.jpg.asset.json";
-import dlfLogo from "@/assets/dlf-logo.svg.asset.json";
+const heroImage = "/images/hero.jpg";
+const interiorImage = "/images/interior1.jpg";
+const amenityImage = "/images/amenity1.jpg";
+const lobbyImage = "/images/lobby.jpg";
+const gardensImage = "/images/gardens.jpg";
+const towerImage = "/images/tower.jpg";
+const logoImage = "/images/dlf-logo.svg";
+
+
+// import interior1Asset from "@/assets/interior1.jpg.asset.json";
+// import amenity1Asset from "@/assets/amenity1.jpg.asset.json";
+// import lobbyAsset from "@/assets/lobby.jpg.asset.json";
+// import gardensAsset from "@/assets/gardens.jpg.asset.json";
+// import towerAsset from "@/assets/tower.jpg.asset.json";
+// import dlfLogo from "@/assets/dlf-logo.svg.asset.json";
 
 const PHONE_DISPLAY = "+91 97735 53393";
 const PHONE_TEL = "+919773553393";
@@ -51,8 +59,8 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
   head: () => ({
     meta: [
-      { property: "og:image", content: heroAsset.url },
-      { name: "twitter:image", content: heroAsset.url },
+      { property: "og:image", content: heroImage },
+      { name: "twitter:image", content: heroImage },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
@@ -95,7 +103,7 @@ function Nav() {
       <div className="container-lux flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
           <div className="flex h-11 items-center justify-center rounded-md bg-white/95 px-3 py-1.5 shadow-sm">
-            <img src={dlfLogo.url} alt="DLF" className="h-6 w-auto" />
+            <img src={logoImage} alt="DLF" className="h-6 w-auto" />
           </div>
           <div className="leading-tight hidden sm:block">
             <div className="font-display text-base tracking-wide">Hamilton Court 2</div>
@@ -143,7 +151,7 @@ function Hero() {
     <section id="top" className="relative min-h-screen w-full overflow-hidden">
       <div className="absolute inset-0 animate-hero-zoom">
         <img
-          src={heroAsset.url}
+          src={heroImage}
           alt="DLF Hamilton Court 2 residential tower at twilight"
           className="h-full w-full object-cover"
           width={1920}
@@ -215,7 +223,7 @@ function Overview() {
         <SectionTitle eyebrow="The Project" title="An enclave curated for the few." />
         <div className="mt-16 grid gap-10 md:grid-cols-2 md:items-center">
           <div className="relative overflow-hidden rounded-3xl shadow-[var(--shadow-luxe)]">
-            <img src={interior1Asset.url} alt="Interior of a residence at DLF Hamilton Court 2" className="h-full w-full object-cover" loading="lazy" width={1600} height={1067} />
+            <img src={interiorImage} alt="Interior of a residence at DLF Hamilton Court 2" className="h-full w-full object-cover" loading="lazy" width={1600} height={1067} />
           </div>
           <div>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -293,7 +301,7 @@ function Amenities() {
   return (
     <section id="amenities" className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 -z-10 opacity-40">
-        <img src={amenity1Asset.url} alt="" className="h-full w-full object-cover" loading="lazy" />
+        <img src={amenityImage} alt="" className="h-full w-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-background/85" />
       </div>
       <div className="container-lux">
@@ -320,7 +328,7 @@ function MasterPlan() {
         <SectionTitle eyebrow="Master Plan" title="Twelve and a half acres, thoughtfully composed." />
         <div className="mt-16 relative overflow-hidden rounded-3xl gold-border shadow-[var(--shadow-luxe)]">
           <div className="relative aspect-[16/9]">
-            <img src={gardensAsset.url} alt="Master plan preview — DLF Hamilton Court 2 landscape" className="absolute inset-0 h-full w-full object-cover opacity-60" loading="lazy" />
+            <img src={gardensImage} alt="Master plan preview — DLF Hamilton Court 2 landscape" className="absolute inset-0 h-full w-full object-cover opacity-60" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
             <div className="absolute inset-0 grid place-items-center text-center px-6">
               <div>
@@ -443,12 +451,12 @@ function Pricing() {
 }
 
 const GALLERY = [
-  { src: heroAsset.url, alt: "Tower exterior at twilight" },
-  { src: interior1Asset.url, alt: "Residence interior" },
-  { src: lobbyAsset.url, alt: "Grand lobby" },
-  { src: amenity1Asset.url, alt: "Rooftop infinity pool" },
-  { src: gardensAsset.url, alt: "Landscaped gardens" },
-  { src: towerAsset.url, alt: "Tower detail" },
+  { src: heroImage, alt: "Tower exterior at twilight" },
+  { src: interiorImage, alt: "Residence interior" },
+  { src: lobbyImage, alt: "Grand lobby" },
+  { src: amenityImage, alt: "Rooftop infinity pool" },
+  { src: gardensImage, alt: "Landscaped gardens" },
+  { src: towerImage, alt: "Tower detail" },
 ];
 
 function Gallery() {
@@ -526,7 +534,7 @@ function LeadForm() {
   return (
     <section id="enquire" className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <img src={lobbyAsset.url} alt="" className="h-full w-full object-cover opacity-25" loading="lazy" />
+        <img src={lobbyImage} alt="" className="h-full w-full object-cover opacity-25" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       </div>
       <div className="container-lux">
@@ -624,7 +632,7 @@ function Footer() {
           <div>
             <div className="flex items-center gap-3">
               <div className="flex h-11 items-center justify-center rounded-md bg-white/95 px-3 py-1.5">
-                <img src={dlfLogo.url} alt="DLF" className="h-6 w-auto" />
+                <img src={logoImage} alt="DLF" className="h-6 w-auto" />
               </div>
               <div>
                 <div className="font-display text-lg">Hamilton Court 2</div>
