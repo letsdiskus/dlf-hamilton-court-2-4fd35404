@@ -22,7 +22,10 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
-          <Link to="/" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
+          >
             Go home
           </Link>
         </div>
@@ -41,10 +44,25 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold">This page didn't load</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Something went wrong. Try again or head home.</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Something went wrong. Try again or head home.
+        </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button onClick={() => { router.invalidate(); reset(); }} className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">Try again</button>
-          <a href="/" className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium">Go home</a>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+          >
+            Try again
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium"
+          >
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -57,24 +75,57 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "DLF Hamilton Court 2 — Ultra-Luxury 4.5 BHK Residences, Gurugram" },
-      { name: "description", content: "DLF Hamilton Court 2: 12.5-acre gated enclave of 4.5 BHK residences and penthouses in Gurugram. Starting ₹27.50 Cr. Request EOI today." },
+      {
+        name: "description",
+        content:
+          "DLF Hamilton Court 2: 12.5-acre gated enclave of 4.5 BHK residences and penthouses in Gurugram. Starting ₹27.50 Cr. Request EOI today.",
+      },
       { name: "author", content: "DLF" },
-      { name: "keywords", content: "DLF Hamilton Court 2, DLF Gurugram, luxury apartments Gurugram, 4.5 BHK Gurugram, penthouse Gurugram, DLF new launch" },
-      { property: "og:title", content: "DLF Hamilton Court 2 — Ultra-Luxury 4.5 BHK Residences, Gurugram" },
-      { property: "og:description", content: "DLF Hamilton Court 2: 12.5-acre gated enclave of 4.5 BHK residences and penthouses in Gurugram. Starting ₹27.50 Cr. Request EOI today." },
+      {
+        name: "keywords",
+        content:
+          "DLF Hamilton Court 2, DLF Gurugram, luxury apartments Gurugram, 4.5 BHK Gurugram, penthouse Gurugram, DLF new launch",
+      },
+      {
+        property: "og:title",
+        content: "DLF Hamilton Court 2 — Ultra-Luxury 4.5 BHK Residences, Gurugram",
+      },
+      {
+        property: "og:description",
+        content:
+          "DLF Hamilton Court 2: 12.5-acre gated enclave of 4.5 BHK residences and penthouses in Gurugram. Starting ₹27.50 Cr. Request EOI today.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "DLF Hamilton Court 2 — Ultra-Luxury 4.5 BHK Residences, Gurugram" },
-      { name: "twitter:description", content: "DLF Hamilton Court 2: 12.5-acre gated enclave of 4.5 BHK residences and penthouses in Gurugram. Starting ₹27.50 Cr. Request EOI today." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f919c012-62c4-455e-92fa-2ee60b560c4b/id-preview-971b01aa--d1dddb9f-a706-4985-b77d-e138046dcadd.lovable.app-1784094925368.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f919c012-62c4-455e-92fa-2ee60b560c4b/id-preview-971b01aa--d1dddb9f-a706-4985-b77d-e138046dcadd.lovable.app-1784094925368.png" },
+      {
+        name: "twitter:title",
+        content: "DLF Hamilton Court 2 — Ultra-Luxury 4.5 BHK Residences, Gurugram",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "DLF Hamilton Court 2: 12.5-acre gated enclave of 4.5 BHK residences and penthouses in Gurugram. Starting ₹27.50 Cr. Request EOI today.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f919c012-62c4-455e-92fa-2ee60b560c4b/id-preview-971b01aa--d1dddb9f-a706-4985-b77d-e138046dcadd.lovable.app-1784094925368.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f919c012-62c4-455e-92fa-2ee60b560c4b/id-preview-971b01aa--d1dddb9f-a706-4985-b77d-e138046dcadd.lovable.app-1784094925368.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap",
+      },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
     scripts: [
@@ -84,8 +135,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Residence",
           name: "DLF Hamilton Court 2",
-          description: "Ultra-luxury 4.5 BHK residences and penthouses across 12.5 acres in Gurugram.",
-          address: { "@type": "PostalAddress", addressLocality: "Gurugram", addressRegion: "Haryana", addressCountry: "IN" },
+          description:
+            "Ultra-luxury 4.5 BHK residences and penthouses across 12.5 acres in Gurugram.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Gurugram",
+            addressRegion: "Haryana",
+            addressCountry: "IN",
+          },
           numberOfRooms: "4.5",
           floorSize: { "@type": "QuantitativeValue", value: 5500, unitCode: "FTK" },
         }),
@@ -101,8 +158,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <head><HeadContent /></head>
-      <body>{children}<Scripts /></body>
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
     </html>
   );
 }

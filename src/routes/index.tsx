@@ -13,6 +13,13 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
   Building2,
   TreePine,
   Waves,
@@ -32,6 +39,7 @@ import {
   ChevronDown,
   Menu,
   X,
+  Mail,
 } from "lucide-react";
 
 const heroImage = "/images/hero.jpg";
@@ -111,13 +119,21 @@ function Nav() {
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {HEADER_NAV.map((n) => (
-            <a key={n.href} href={n.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a
+              key={n.href}
+              href={n.href}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
               {n.label}
             </a>
           ))}
         </nav>
         <div className="hidden lg:block">
-          <Button asChild variant="default" className="rounded-full bg-primary text-primary-foreground hover:opacity-90 px-5">
+          <Button
+            asChild
+            variant="default"
+            className="rounded-full bg-primary text-primary-foreground hover:opacity-90 px-5"
+          >
             <a href="#enquire">Request EOI</a>
           </Button>
         </div>
@@ -133,11 +149,20 @@ function Nav() {
         <div className="lg:hidden glass-dark border-t border-border">
           <div className="container-lux py-4 flex flex-col gap-3">
             {HEADER_NAV.map((n) => (
-              <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-2 text-sm text-muted-foreground hover:text-primary">
+              <a
+                key={n.href}
+                href={n.href}
+                onClick={() => setOpen(false)}
+                className="py-2 text-sm text-muted-foreground hover:text-primary"
+              >
                 {n.label}
               </a>
             ))}
-            <Button asChild className="rounded-full mt-2"><a href="#enquire" onClick={() => setOpen(false)}>Request EOI</a></Button>
+            <Button asChild className="rounded-full mt-2">
+              <a href="#enquire" onClick={() => setOpen(false)}>
+                Request EOI
+              </a>
+            </Button>
           </div>
         </div>
       )}
@@ -170,15 +195,26 @@ function Hero() {
               <span className="gold-text italic">Reimagined</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground">
-              DLF Hamilton Court 2 -an ultra-luxury enclave of 4.5 BHK residences and sky-penthouses,
-              set across 12.5 acres in the heart of Gurugram
+              DLF Hamilton Court 2 -an ultra-luxury enclave of 4.5 BHK residences and
+              sky-penthouses, set across 12.5 acres in the heart of Gurugram
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 px-7 shadow-[var(--shadow-gold)]">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 px-7 shadow-[var(--shadow-gold)]"
+              >
                 <a href="#enquire">Request EOI</a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-7 gold-border bg-transparent hover:bg-primary/10">
-                <a href="#enquire"><Download className="mr-2 h-4 w-4" /> Download Brochure</a>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full h-12 px-7 gold-border bg-transparent hover:bg-primary/10"
+              >
+                <a href="#enquire">
+                  <Download className="mr-2 h-4 w-4" /> Download Brochure
+                </a>
               </Button>
             </div>
             <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
@@ -189,7 +225,9 @@ function Hero() {
                 { k: "Config", v: "4.5 BHK" },
               ].map((s) => (
                 <div key={s.k}>
-                  <dt className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">{s.k}</dt>
+                  <dt className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                    {s.k}
+                  </dt>
                   <dd className="mt-1 font-display text-2xl">{s.v}</dd>
                 </div>
               ))}
@@ -197,14 +235,26 @@ function Hero() {
           </div>
         </div>
       </div>
-      <a href="#overview" className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce z-10" aria-label="Scroll">
+      <a
+        href="#overview"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce z-10"
+        aria-label="Scroll"
+      >
         <ChevronDown className="h-6 w-6" />
       </a>
     </section>
   );
 }
 
-function SectionTitle({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle?: string }) {
+function SectionTitle({
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+}) {
   return (
     <div className="mx-auto max-w-3xl text-center">
       <div className="text-[10px] uppercase tracking-[0.35em] text-primary">{eyebrow}</div>
@@ -222,18 +272,26 @@ function Overview() {
         <SectionTitle eyebrow="The Project" title="An enclave curated for the few." />
         <div className="mt-16 grid gap-10 md:grid-cols-2 md:items-center">
           <div className="relative overflow-hidden rounded-3xl shadow-[var(--shadow-luxe)]">
-            <img src={interiorImage} alt="Interior of a residence at DLF Hamilton Court 2" className="h-full w-full object-cover" loading="lazy" width={1600} height={1067} />
+            <img
+              src={interiorImage}
+              alt="Interior of a residence at DLF Hamilton Court 2"
+              className="h-full w-full object-cover"
+              loading="lazy"
+              width={1600}
+              height={1067}
+            />
           </div>
           <div>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Set behind private gates in Gurugram's most sought-after corridor, DLF Hamilton Court 2 is a
-              limited collection of expansive 4.5 BHK residences and sky-penthouses. Each home is engineered
-              for scale -approx. <span className="text-foreground">5,500 sq ft</span> of living, with penthouses
+              Set behind private gates in Gurugram's most sought-after corridor, DLF Hamilton Court
+              2 is a limited collection of expansive 4.5 BHK residences and sky-penthouses. Each
+              home is engineered for scale -approx.{" "}
+              <span className="text-foreground">5,500 sq ft</span> of living, with penthouses
               extending to <span className="text-foreground">8,500 sq ft</span>.
             </p>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Six to seven sculpted towers rise from twelve and a half acres of landscaped gardens, water bodies
-              and low-density living -an address that speaks softly, yet unmistakably
+              Six to seven sculpted towers rise from twelve and a half acres of landscaped gardens,
+              water bodies and low-density living -an address that speaks softly, yet unmistakably
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
@@ -244,7 +302,9 @@ function Overview() {
               ].map((s) => (
                 <div key={s.k} className="glass rounded-2xl p-4">
                   <s.icon className="h-5 w-5 text-primary" />
-                  <div className="mt-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{s.k}</div>
+                  <div className="mt-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    {s.k}
+                  </div>
                   <div className="font-display text-lg">{s.v}</div>
                 </div>
               ))}
@@ -257,12 +317,36 @@ function Overview() {
 }
 
 const HIGHLIGHTS = [
-  { icon: Crown, title: "Ultra-Luxury Segment", desc: "Positioned amongst DLF's most exclusive residences to date." },
-  { icon: TreePine, title: "12.5 Acres of Green", desc: "Sprawling landscaped gardens, water bodies and quiet walks." },
-  { icon: Building2, title: "6 – 7 Iconic Towers", desc: "Sculpted architecture with panoramic city and green views." },
-  { icon: Ruler, title: "Expansive 4.5 BHK", desc: "≈ 5,500 sq ft of thoughtfully proportioned living space." },
-  { icon: Home, title: "Sky Penthouses", desc: "Rare 7,500 – 8,500 sq ft penthouses at the crown of the towers." },
-  { icon: ShieldCheck, title: "Private, Gated Enclave", desc: "Multi-tier security, private drop-off and concierge." },
+  {
+    icon: Crown,
+    title: "Ultra-Luxury Segment",
+    desc: "Positioned amongst DLF's most exclusive residences to date.",
+  },
+  {
+    icon: TreePine,
+    title: "12.5 Acres of Green",
+    desc: "Sprawling landscaped gardens, water bodies and quiet walks.",
+  },
+  {
+    icon: Building2,
+    title: "6 – 7 Iconic Towers",
+    desc: "Sculpted architecture with panoramic city and green views.",
+  },
+  {
+    icon: Ruler,
+    title: "Expansive 4.5 BHK",
+    desc: "≈ 5,500 sq ft of thoughtfully proportioned living space.",
+  },
+  {
+    icon: Home,
+    title: "Sky Penthouses",
+    desc: "Rare 7,500 – 8,500 sq ft penthouses at the crown of the towers.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Private, Gated Enclave",
+    desc: "Multi-tier security, private drop-off and concierge.",
+  },
 ];
 
 function Highlights() {
@@ -272,7 +356,10 @@ function Highlights() {
         <SectionTitle eyebrow="Key Highlights" title="Details that define the address." />
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map((h) => (
-            <div key={h.title} className="group relative overflow-hidden rounded-2xl glass p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-gold)]">
+            <div
+              key={h.title}
+              className="group relative overflow-hidden rounded-2xl glass p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-gold)]"
+            >
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <h.icon className="h-8 w-8 text-primary" />
               <h3 className="mt-5 font-display text-2xl">{h.title}</h3>
@@ -304,10 +391,17 @@ function Amenities() {
         <div className="absolute inset-0 bg-background/85" />
       </div>
       <div className="container-lux">
-        <SectionTitle eyebrow="Premium Amenities" title="A private world, curated." subtitle="Every amenity has been chosen to reflect a rarefied way of life." />
+        <SectionTitle
+          eyebrow="Premium Amenities"
+          title="A private world, curated."
+          subtitle="Every amenity has been chosen to reflect a rarefied way of life."
+        />
         <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
           {AMENITIES.map((a) => (
-            <div key={a.title} className="group flex flex-col items-center justify-center rounded-2xl glass p-8 text-center transition-all hover:border-primary/50 hover:-translate-y-1">
+            <div
+              key={a.title}
+              className="group flex flex-col items-center justify-center rounded-2xl glass p-8 text-center transition-all hover:border-primary/50 hover:-translate-y-1"
+            >
               <div className="grid h-14 w-14 place-items-center rounded-full gold-border bg-background/40 mb-4 group-hover:bg-primary/10 transition-colors">
                 <a.icon className="h-6 w-6 text-primary" />
               </div>
@@ -324,19 +418,31 @@ function MasterPlan() {
   return (
     <section id="masterplan" className="relative py-1 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
-        <SectionTitle eyebrow="Master Plan" title="Twelve and a half acres, thoughtfully composed." />
+        <SectionTitle
+          eyebrow="Master Plan"
+          title="Twelve and a half acres, thoughtfully composed."
+        />
         <div className="mt-16 relative overflow-hidden rounded-3xl gold-border shadow-[var(--shadow-luxe)]">
           <div className="relative aspect-[16/9]">
-            <img src={gardensImage} alt="Master plan preview -DLF Hamilton Court 2 landscape" className="absolute inset-0 h-full w-full object-cover opacity-60" loading="lazy" />
+            <img
+              src={gardensImage}
+              alt="Master plan preview -DLF Hamilton Court 2 landscape"
+              className="absolute inset-0 h-full w-full object-cover opacity-60"
+              loading="lazy"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
             <div className="absolute inset-0 grid place-items-center text-center px-6">
               <div>
                 <div className="text-[10px] uppercase tracking-[0.35em] text-primary">Preview</div>
-                <div className="mt-3 font-display text-3xl md:text-5xl">Detailed master plan on request</div>
+                <div className="mt-3 font-display text-3xl md:text-5xl">
+                  Detailed master plan on request
+                </div>
                 <p className="mt-4 max-w-xl mx-auto text-sm text-muted-foreground">
                   Share your details to receive the confidential master plan and site walkthrough
                 </p>
-                <Button asChild className="mt-6 rounded-full bg-primary text-primary-foreground"><a href="#enquire">Request Master Plan</a></Button>
+                <Button asChild className="mt-6 rounded-full bg-primary text-primary-foreground">
+                  <a href="#enquire">Request Master Plan</a>
+                </Button>
               </div>
             </div>
           </div>
@@ -347,9 +453,21 @@ function MasterPlan() {
 }
 
 const FLOORPLANS = [
-  { type: "4.5 BHK Residence", size: "≈ 5,500 sq ft", detail: "Signature layout with private lift lobby, chef's kitchen, staff quarters." },
-  { type: "4.5 BHK Corner", size: "≈ 5,500 sq ft", detail: "Twin-aspect corner unit with wrap-around balconies and green views." },
-  { type: "Sky Penthouse", size: "7,500 – 8,500 sq ft", detail: "Duplex penthouse with private terrace, plunge pool and skyline vistas." },
+  {
+    type: "4.5 BHK Residence",
+    size: "≈ 5,500 sq ft",
+    detail: "Signature layout with private lift lobby, chef's kitchen, staff quarters.",
+  },
+  {
+    type: "4.5 BHK Corner",
+    size: "≈ 5,500 sq ft",
+    detail: "Twin-aspect corner unit with wrap-around balconies and green views.",
+  },
+  {
+    type: "Sky Penthouse",
+    size: "7,500 – 8,500 sq ft",
+    detail: "Duplex penthouse with private terrace, plunge pool and skyline vistas.",
+  },
 ];
 
 function FloorPlans() {
@@ -359,8 +477,13 @@ function FloorPlans() {
         <SectionTitle eyebrow="Floor Plans" title="Three ways to live grandly." />
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {FLOORPLANS.map((f, i) => (
-            <div key={f.type} className="group relative overflow-hidden rounded-3xl glass p-8 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-gold)]">
-              <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Type 0{i + 1}</div>
+            <div
+              key={f.type}
+              className="group relative overflow-hidden rounded-3xl glass p-8 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-gold)]"
+            >
+              <div className="text-[10px] uppercase tracking-[0.3em] text-primary">
+                Type 0{i + 1}
+              </div>
               <h3 className="mt-3 font-display text-3xl">{f.type}</h3>
               <div className="mt-2 font-display text-xl gold-text">{f.size}</div>
               <p className="mt-4 text-sm text-muted-foreground">{f.detail}</p>
@@ -370,7 +493,11 @@ function FloorPlans() {
                   Floor plan available on request
                 </div>
               </div>
-              <Button asChild variant="outline" className="mt-6 w-full rounded-full gold-border bg-transparent hover:bg-primary/10">
+              <Button
+                asChild
+                variant="outline"
+                className="mt-6 w-full rounded-full gold-border bg-transparent hover:bg-primary/10"
+              >
                 <a href="#enquire">Request This Plan</a>
               </Button>
             </div>
@@ -394,7 +521,10 @@ function Location() {
   return (
     <section id="location" className="relative py-2 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
-        <SectionTitle eyebrow="Location Advantages" title="At the centre of everything that matters." />
+        <SectionTitle
+          eyebrow="Location Advantages"
+          title="At the centre of everything that matters."
+        />
         <div className="mt-16 mx-auto max-w-3xl">
           <ol className="relative border-l border-primary/30 pl-8 space-y-8">
             {LOCATION.map((l) => (
@@ -425,7 +555,11 @@ function Pricing() {
   return (
     <section id="pricing" className="relative py-2 md:py-2">
       <div className="container-lux">
-        <SectionTitle eyebrow="Indicative Pricing" title="Positioned at ≈ ₹50,000 per sq ft." subtitle="Pricing is indicative and subject to change at the sole discretion of the developer." />
+        <SectionTitle
+          eyebrow="Indicative Pricing"
+          title="Positioned at ≈ ₹50,000 per sq ft."
+          subtitle="Pricing is indicative and subject to change at the sole discretion of the developer."
+        />
         <div className="mt-16 overflow-hidden rounded-3xl glass shadow-[var(--shadow-luxe)]">
           <div className="grid grid-cols-3 border-b border-border bg-background/40 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
             <div className="p-5">Residence</div>
@@ -433,16 +567,22 @@ function Pricing() {
             <div className="p-5 text-right">Indicative Price</div>
           </div>
           {PRICING.map((p) => (
-            <div key={p.type} className="grid grid-cols-3 items-center border-b border-border last:border-b-0 transition-colors hover:bg-primary/5">
+            <div
+              key={p.type}
+              className="grid grid-cols-3 items-center border-b border-border last:border-b-0 transition-colors hover:bg-primary/5"
+            >
               <div className="p-5 font-display text-lg md:text-xl">{p.type}</div>
               <div className="p-5 text-muted-foreground text-sm md:text-base">{p.size}</div>
-              <div className="p-5 text-right font-display text-lg md:text-2xl gold-text">{p.price}</div>
+              <div className="p-5 text-right font-display text-lg md:text-2xl gold-text">
+                {p.price}
+              </div>
             </div>
           ))}
         </div>
         <p className="mt-6 text-xs text-muted-foreground text-center max-w-2xl mx-auto">
-          * Indicative price for a ≈ 5,500 sq ft apartment at approximately ₹50,000 per sq ft, exclusive of GST and other statutory charges.
-          All prices, sizes and configurations are tentative and subject to change without notice
+          * Indicative price for a ≈ 5,500 sq ft apartment at approximately ₹50,000 per sq ft,
+          exclusive of GST and other statutory charges. All prices, sizes and configurations are
+          tentative and subject to change without notice
         </p>
       </div>
     </section>
@@ -469,7 +609,12 @@ function Gallery() {
               key={i}
               className={`group relative overflow-hidden rounded-2xl gold-border ${i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-[4/3]" : "aspect-square"}`}
             >
-              <img src={g.src} alt={g.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              <img
+                src={g.src}
+                alt={g.alt}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           ))}
@@ -480,12 +625,30 @@ function Gallery() {
 }
 
 const FAQS = [
-  { q: "Where is DLF Hamilton Court 2 located?", a: "The project is located in Gurugram. Detailed sector and address will be shared with confirmed enquiries." },
-  { q: "What is the total land area?", a: "The project is planned over approximately 12.5 acres of land, offering a low-density living experience." },
-  { q: "How many towers and apartments?", a: "The development is planned as 6–7 towers with approximately 450 residences in total." },
-  { q: "What configurations are available?", a: "The primary configuration is 4.5 BHK of approximately 5,500 sq ft, with select sky-penthouses ranging 7,500 – 8,500 sq ft." },
-  { q: "What is the indicative price?", a: "Indicative pricing is around ₹50,000 per sq ft, i.e. approximately ₹27.50 Cr + GST for a 5,500 sq ft residence. Prices are tentative and subject to change." },
-  { q: "When will the project launch?", a: "The project is in the pre-launch phase. Expressions of Interest are being accepted on a priority basis." },
+  {
+    q: "Where is DLF Hamilton Court 2 located?",
+    a: "The project is located in Gurugram. Detailed sector and address will be shared with confirmed enquiries.",
+  },
+  {
+    q: "What is the total land area?",
+    a: "The project is planned over approximately 12.5 acres of land, offering a low-density living experience.",
+  },
+  {
+    q: "How many towers and apartments?",
+    a: "The development is planned as 6–7 towers with approximately 450 residences in total.",
+  },
+  {
+    q: "What configurations are available?",
+    a: "The primary configuration is 4.5 BHK of approximately 5,500 sq ft, with select sky-penthouses ranging 7,500 – 8,500 sq ft.",
+  },
+  {
+    q: "What is the indicative price?",
+    a: "Indicative pricing is around ₹50,000 per sq ft, i.e. approximately ₹27.50 Cr + GST for a 5,500 sq ft residence. Prices are tentative and subject to change.",
+  },
+  {
+    q: "When will the project launch?",
+    a: "The project is in the pre-launch phase. Expressions of Interest are being accepted on a priority basis.",
+  },
 ];
 
 function FAQ() {
@@ -495,7 +658,11 @@ function FAQ() {
         <SectionTitle eyebrow="FAQ" title="Frequently asked questions." />
         <Accordion type="single" collapsible className="mt-12">
           {FAQS.map((f, i) => (
-            <AccordionItem key={i} value={`item-${i}`} className="glass mb-3 rounded-2xl border-none px-6">
+            <AccordionItem
+              key={i}
+              value={`item-${i}`}
+              className="glass mb-3 rounded-2xl border-none px-6"
+            >
               <AccordionTrigger className="text-left font-display text-lg hover:no-underline hover:text-primary">
                 {f.q}
               </AccordionTrigger>
@@ -530,248 +697,287 @@ function FAQ() {
 //       toast.success("Thank you -our relationship manager will reach out shortly.");
 //     }, 900);
 
-function LeadForm() {
+function ContactForm({ className }: { className?: string }) {
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setSubmitting(true);
+    e.preventDefault();
+    setSubmitting(true);
 
-  const form = e.currentTarget;
-  const formData = new FormData(form);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-  formData.append("access_key", "3c59693d-4b24-462b-b2d1-5a19da1387a9");
-  formData.append("subject", "New Lead - DLF Hamilton Court 2");
-  formData.append("from_name", "DLF Hamilton Court 2 Landing Page");
-  formData.append("project", "DLF Hamilton Court 2");
-  formData.append("source", "Landing Page");
+    formData.append("access_key", "3c59693d-4b24-462b-b2d1-5a19da1387a9");
+    formData.append("subject", "New Lead - DLF Hamilton Court 2");
+    formData.append("from_name", "DLF Hamilton Court 2 Landing Page");
+    formData.append("project", "DLF Hamilton Court 2");
+    formData.append("source", "Landing Page");
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (result.success) {
-      toast.success("Thank you! Our relationship manager will contact you shortly.");
-      form.reset();
-    } else {
-      console.error(result);
-      toast.error("Submission failed. Please try again.");
+      if (result.success) {
+        toast.success("Thank you! Our relationship manager will contact you shortly.");
+        form.reset();
+      } else {
+        console.error(result);
+        toast.error("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
-  } catch (error) {
-    console.error(error);
-    toast.error("Something went wrong. Please try again.");
-  } finally {
-    setSubmitting(false);
-  }
-};
+  };
 
+  return (
+    <form onSubmit={onSubmit} className={className}>
+      <div className="grid gap-5">
+        <div>
+          <Label
+            htmlFor="name"
+            className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
+          >
+            Full Name
+          </Label>
+
+          <Input
+            id="name"
+            name="name"
+            required
+            className="mt-2 h-12 bg-background/40 border-border"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <Label
+              htmlFor="email"
+              className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
+            >
+              Email
+            </Label>
+
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="mt-2 h-12 bg-background/40 border-border"
+              placeholder="you@email.com"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="phone"
+              className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
+            >
+              Phone
+            </Label>
+
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              className="mt-2 h-12 bg-background/40 border-border"
+              placeholder="+91"
+            />
+          </div>
+        </div>
+
+        <div>
+          <Label htmlFor="msg" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            Message
+          </Label>
+
+          <Textarea
+            id="msg"
+            name="message"
+            rows={3}
+            className="mt-2 bg-background/40 border-border"
+            placeholder="Tell us your preference - apartment, corner unit or penthouse."
+          />
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Button
+            type="submit"
+            disabled={submitting}
+            size="lg"
+            className="flex-1 rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 shadow-[var(--shadow-gold)]"
+          >
+            {submitting ? "Submitting…" : "Request EOI"}
+          </Button>
+
+          <Button
+            type="submit"
+            disabled={submitting}
+            size="lg"
+            variant="outline"
+            className="flex-1 rounded-full gold-border bg-transparent hover:bg-primary/10 h-12"
+          >
+            <Download className="mr-2 h-4 w-4" />
+            {submitting ? "Submitting..." : "Download Brochure"}
+          </Button>
+        </div>
+
+        <p className="text-[11px] text-muted-foreground">
+          By submitting, you consent to be contacted by our authorised channel partner regarding
+          this project. Pricing and inventory are tentative and subject to change.
+        </p>
+      </div>
+    </form>
+  );
+}
+
+function LeadForm() {
   return (
     <section id="enquire" className="relative py-2 md:py-2 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <img src={lobbyImage} alt="" className="h-full w-full object-cover opacity-25" loading="lazy" />
+        <img
+          src={lobbyImage}
+          alt=""
+          className="h-full w-full object-cover opacity-25"
+          loading="lazy"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       </div>
       <div className="container-lux">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <div className="text-[10px] uppercase tracking-[0.35em] text-primary">Register Your Interest</div>
+            <div className="text-[10px] uppercase tracking-[0.35em] text-primary">
+              Register Your Interest
+            </div>
             <div className="hairline my-4 w-24" />
             <h2 className="font-display text-4xl md:text-5xl leading-tight">
-              Be amongst the first to receive the <span className="gold-text italic">private preview</span>
+              Be amongst the first to receive the{" "}
+              <span className="gold-text italic">private preview</span>
             </h2>
             <p className="mt-5 text-muted-foreground max-w-lg">
-              Share your details and our relationship manager will reach out with the confidential brochure,
-              floor plans, master plan and priority-EOI details
+              Share your details and our relationship manager will reach out with the confidential
+              brochure, floor plans, master plan and priority-EOI details
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition"
+              >
                 <Phone className="h-4 w-4 text-primary" /> {PHONE_DISPLAY}
               </a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition"
+              >
                 <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
               </a>
-              <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition"
+              >
                 <span className="text-primary">✉</span> {EMAIL}
               </a>
             </div>
           </div>
-          {/* <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-[var(--shadow-luxe)]">
-            <div className="grid gap-5">
-              <div>
-                <Label htmlFor="name" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Full Name</Label>
-                <Input id="name" required className="mt-2 h-12 bg-background/40 border-border" placeholder="Your name" />
-              </div>
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <Label htmlFor="email" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Email</Label>
-                  <Input id="email" type="email" required className="mt-2 h-12 bg-background/40 border-border" placeholder="you@email.com" />
-                </div>
-                <div>
-                  <Label htmlFor="phone" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Phone</Label>
-                  <Input id="phone" type="tel" required className="mt-2 h-12 bg-background/40 border-border" placeholder="+91" />
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="msg" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Message</Label>
-                <Textarea id="msg" rows={3} className="mt-2 bg-background/40 border-border" placeholder="Tell us your preference -apartment, corner unit or penthouse." />
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button type="submit" disabled={submitting} size="lg" className="flex-1 rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 shadow-[var(--shadow-gold)]">
-                  {submitting ? "Submitting…" : "Request EOI"}
-                </Button>
-                <Button type="submit" disabled={submitting} size="lg" variant="outline" className="flex-1 rounded-full gold-border bg-transparent hover:bg-primary/10 h-12">
-                  <Download className="mr-2 h-4 w-4" /> Download Brochure
-                </Button>
-              </div>
-              <p className="text-[11px] text-muted-foreground">
-                By submitting, you consent to be contacted by our authorised channel partner regarding this project.
-                Pricing and inventory are tentative and subject to change
-              </p>
-            </div>
-          </form> */
-          <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-[var(--shadow-luxe)]">
-  <div className="grid gap-5">
-    <div>
-      <Label
-        htmlFor="name"
-        className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
-      >
-        Full Name
-      </Label>
-
-      <Input
-        id="name"
-        name="name"
-        required
-        className="mt-2 h-12 bg-background/40 border-border"
-        placeholder="Your name"
-      />
-    </div>
-
-    <div className="grid gap-5 sm:grid-cols-2">
-      <div>
-        <Label
-          htmlFor="email"
-          className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
-        >
-          Email
-        </Label>
-
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          required
-          className="mt-2 h-12 bg-background/40 border-border"
-          placeholder="you@email.com"
-        />
-      </div>
-
-      <div>
-        <Label
-          htmlFor="phone"
-          className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
-        >
-          Phone
-        </Label>
-
-        <Input
-          id="phone"
-          name="phone"
-          type="tel"
-          required
-          className="mt-2 h-12 bg-background/40 border-border"
-          placeholder="+91"
-        />
-      </div>
-    </div>
-
-    <div>
-      <Label
-        htmlFor="msg"
-        className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
-      >
-        Message
-      </Label>
-
-      <Textarea
-        id="msg"
-        name="message"
-        rows={3}
-        className="mt-2 bg-background/40 border-border"
-        placeholder="Tell us your preference - apartment, corner unit or penthouse."
-      />
-    </div>
-
-    <div className="flex flex-col sm:flex-row gap-3">
-      <Button
-        type="submit"
-        disabled={submitting}
-        size="lg"
-        className="flex-1 rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 shadow-[var(--shadow-gold)]"
-      >
-        {submitting ? "Submitting…" : "Request EOI"}
-      </Button>
-
-      {/* <Button
-        type="button"
-        size="lg"
-        variant="outline"
-        className="flex-1 rounded-full gold-border bg-transparent hover:bg-primary/10 h-12"
-      >
-        <Download className="mr-2 h-4 w-4" />
-        Download Brochure
-      </Button> */
-      <Button
-  type="submit"
-  disabled={submitting}
-  size="lg"
-  variant="outline"
-  className="flex-1 rounded-full gold-border bg-transparent hover:bg-primary/10 h-12"
->
-  <Download className="mr-2 h-4 w-4" />
-  {submitting ? "Submitting..." : "Download Brochure"}
-</Button>
-      }
-    </div>
-
-    <p className="text-[11px] text-muted-foreground">
-      By submitting, you consent to be contacted by our authorised channel
-      partner regarding this project. Pricing and inventory are tentative and
-      subject to change.
-    </p>
-  </div>
-</form>
-}</div>
+          <ContactForm className="glass rounded-3xl p-8 shadow-[var(--shadow-luxe)]" />
+        </div>
       </div>
     </section>
   );
 }
 
+function PopupForm() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 4000); // Popup appears after 4 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent className="sm:max-w-[425px] border-primary/20 bg-background/95 backdrop-blur-md">
+        <DialogHeader>
+          <DialogTitle className="font-display text-2xl gold-text">
+            Register Your Interest
+          </DialogTitle>
+          <DialogDescription>
+            Share your details to receive the confidential brochure, floor plans, and master plan.
+          </DialogDescription>
+        </DialogHeader>
+        <ContactForm />
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function FloatingActions() {
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        className="group grid h-14 w-14 place-items-center rounded-full bg-[oklch(0.6_0.16_150)] text-white shadow-lg hover:scale-110 transition-transform"
-      >
-        <MessageCircle className="h-6 w-6" />
-      </a>
-      <a
-        href={`tel:${PHONE_TEL}`}
-        aria-label="Call now"
-        className="grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-gold)] hover:scale-110 transition-transform"
-      >
-        <Phone className="h-6 w-6" />
-      </a>
-    </div>
+    <>
+      <div className="hidden lg:flex fixed bottom-5 right-5 z-40 flex-col gap-3">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+          className="group grid h-14 w-14 place-items-center rounded-full bg-[oklch(0.6_0.16_150)] text-white shadow-lg hover:scale-110 transition-transform"
+        >
+          <MessageCircle className="h-6 w-6" />
+        </a>
+        <a
+          href={`tel:${PHONE_TEL}`}
+          aria-label="Call now"
+          className="grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-gold)] hover:scale-110 transition-transform"
+        >
+          <Phone className="h-6 w-6" />
+        </a>
+      </div>
+
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 flex h-16 shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
+        <a
+          href={`tel:${PHONE_TEL}`}
+          className="flex flex-1 flex-col items-center justify-center bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider border-r border-primary-foreground/20"
+        >
+          <Phone className="mb-1 h-4 w-4" />
+          Call Now
+        </a>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-1 flex-col items-center justify-center bg-[#25D366] text-white text-[10px] font-bold uppercase tracking-wider"
+        >
+          <MessageCircle className="mb-1 h-4 w-4" />
+          WhatsApp
+        </a>
+        <a
+          href="#enquire"
+          className="flex flex-1 flex-col items-center justify-center bg-zinc-900 text-white text-[10px] font-bold uppercase tracking-wider border-r border-zinc-800"
+        >
+          <Download className="mb-1 h-4 w-4" />
+          Brochure
+        </a>
+        <a
+          href="#enquire"
+          className="flex flex-1 flex-col items-center justify-center bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider"
+        >
+          <Mail className="mb-1 h-4 w-4" />
+          Enquire
+        </a>
+      </div>
+    </>
   );
 }
 
@@ -791,15 +997,33 @@ function Footer() {
               </div> */}
             </div>
             <p className="mt-5 text-sm text-muted-foreground max-w-sm">
-              An ultra-luxury residential enclave. This microsite is presented by an authorised channel partner
+              An ultra-luxury residential enclave. This microsite is presented by an authorised
+              channel partner
             </p>
           </div>
           <div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Contact</div>
             <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <div><a href={`tel:${PHONE_TEL}`} className="hover:text-primary">{PHONE_DISPLAY}</a></div>
-              <div><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary">WhatsApp: {PHONE_DISPLAY}</a></div>
-              <div><a href={`mailto:${EMAIL}`} className="hover:text-primary">{EMAIL}</a></div>
+              <div>
+                <a href={`tel:${PHONE_TEL}`} className="hover:text-primary">
+                  {PHONE_DISPLAY}
+                </a>
+              </div>
+              <div>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary"
+                >
+                  WhatsApp: {PHONE_DISPLAY}
+                </a>
+              </div>
+              <div>
+                <a href={`mailto:${EMAIL}`} className="hover:text-primary">
+                  {EMAIL}
+                </a>
+              </div>
               <div>Gurugram, Haryana, India</div>
             </div>
           </div>
@@ -807,22 +1031,27 @@ function Footer() {
             <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Explore</div>
             <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-muted-foreground">
               {FOOTER_NAV.map((n) => (
-                <a key={n.href} href={n.href} className="hover:text-primary transition-colors">{n.label}</a>
+                <a key={n.href} href={n.href} className="hover:text-primary transition-colors">
+                  {n.label}
+                </a>
               ))}
             </div>
           </div>
         </div>
         <div className="hairline my-10" />
         <p className="text-[11px] leading-relaxed text-muted-foreground max-w-4xl">
-          <span className="text-foreground/80 font-medium">Disclaimer:</span> All content on this website is
-          for informational purposes only. All details, specifications, plans, dimensions, prices, images,
-          amenities and configurations mentioned herein are indicative and tentative in nature and are subject
-          to change without prior notice at the sole discretion of the developer. This is not a legal offer or
-          commitment and does not form part of any contract. The developer reserves the right to alter or
-          modify any plans, specifications or elevations without notice. This website is operated by an
-          authorised channel partner and is not the official website of the developer.
+          <span className="text-foreground/80 font-medium">Disclaimer:</span> All content on this
+          website is for informational purposes only. All details, specifications, plans,
+          dimensions, prices, images, amenities and configurations mentioned herein are indicative
+          and tentative in nature and are subject to change without prior notice at the sole
+          discretion of the developer. This is not a legal offer or commitment and does not form
+          part of any contract. The developer reserves the right to alter or modify any plans,
+          specifications or elevations without notice. This website is operated by an authorised
+          channel partner and is not the official website of the developer.
         </p>
-        <div className="mt-6 text-xs text-muted-foreground">© {new Date().getFullYear()} DLF Hamilton Court 2 microsite. All rights reserved.</div>
+        <div className="mt-6 text-xs text-muted-foreground">
+          © {new Date().getFullYear()} DLF Hamilton Court 2 microsite. All rights reserved.
+        </div>
       </div>
     </footer>
   );
@@ -830,7 +1059,7 @@ function Footer() {
 
 function LandingPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground pb-16 lg:pb-0">
       <Nav />
       <main>
         <Hero />
@@ -847,6 +1076,7 @@ function LandingPage() {
       </main>
       <Footer />
       <FloatingActions />
+      <PopupForm />
       <Toaster position="top-center" />
     </div>
   );
