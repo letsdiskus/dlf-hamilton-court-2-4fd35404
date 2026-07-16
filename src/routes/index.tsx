@@ -754,7 +754,7 @@ function LeadForm() {
 
 function FloatingActions() {
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
+    <div className="hidden md:flex fixed bottom-5 right-5 z-40 flex flex-col gap-3">
       <a
         href={WHATSAPP_URL}
         target="_blank"
@@ -774,7 +774,85 @@ function FloatingActions() {
     </div>
   );
 }
+function mobileCall(){
+  return(
+    <div className="mobile-footer-bar">
+  <a href={`tel:${PHONE_TEL}`} className="mobile-bar-btn call-active">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+    <span>Call Now</span>
+  </a>
 
+  <a
+    href={WHATSAPP_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+    className="mobile-bar-btn wa-active"
+  >
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.758.459 3.473 1.332 4.984l-1.416 5.176 5.305-1.391c1.465.797 3.109 1.219 4.767 1.219 5.508 0 9.99-4.482 9.99-9.988 0-5.506-4.482-9.988-9.99-9.988zm6.541 14.156c-.27.758-1.566 1.4-2.152 1.488-.574.086-1.312.164-3.805-.832-3.184-1.277-5.207-4.52-5.367-4.734-.156-.211-1.289-1.719-1.289-3.281 0-1.559.816-2.324 1.109-2.625.293-.301.648-.379.867-.379s.438.004.625.012c.195.008.457-.074.719.559.27.648.918 2.242.996 2.402.078.16.129.348.02.566-.109.219-.168.355-.332.547-.168.191-.355.426-.508.574-.176.168-.359.352-.152.707.203.355.91 1.504 1.953 2.43 1.34 1.191 2.473 1.559 2.82 1.734.348.176.547.148.754-.086.207-.234.895-1.039 1.137-1.398.242-.359.488-.301.816-.18.328.121.207.062.648.98.102.164.102.949-.168 1.707z" />
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <a
+    href="#"
+    className="mobile-bar-btn"
+    data-action="enquire"
+    data-title="Download Mobile Brochure"
+    data-source="Mobile Footer - Download PDF"
+  >
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+    </svg>
+    <span>Brochure</span>
+  </a>
+
+  <a
+    href="#"
+    className="mobile-bar-btn enquire-active"
+    data-action="enquire"
+    data-title="Mobile Enquire Now"
+    data-source="Mobile Footer - Enquire Form"
+  >
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+      <polyline points="22,6 12,13 2,6" />
+    </svg>
+    <span>Enquire</span>
+  </a>
+</div>
+  );
+}
 function Footer() {
   return (
     <footer className="relative border-t border-border bg-[oklch(0.1_0.01_260)] py-14">
